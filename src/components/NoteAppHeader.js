@@ -3,7 +3,6 @@ import React from 'react';
 class NoteAppHeader extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       tempSearch: ''
     };
@@ -12,11 +11,9 @@ class NoteAppHeader extends React.Component {
   }
 
   onSearchChangeEventHandler(event) {
-    console.log(event, '<==============');
-    this.setState(() => {
-      return {
-        tempSearch: event.target.value
-      };
+    this.props.search(event.target.value)
+    this.setState({
+      tempSearch: event.target.value
     });
   }
 

@@ -8,7 +8,9 @@ class NoteInput extends React.Component {
     this.state = {
       notes: getInitialData(),
       title: '',
-      body: ''
+      body: '',
+      createdAt: new Date(),
+      archived: false
     };
 
     this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
@@ -33,7 +35,6 @@ class NoteInput extends React.Component {
   }
 
   onSubmitChangeEventHandler(event) {
-    console.log(this.state, '==== input');
     this.setState(() => {
       event.preventDefault();
       this.props.addNote(this.state);

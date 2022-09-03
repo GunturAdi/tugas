@@ -10,7 +10,9 @@ function NoteAppBody({ notes, onDelete, onArchieve, date, addNote, archieve, onM
       <NotesList notes={notes} onDelete={onDelete} onArchieve={onArchieve} date={date} buttonName="Arsipkan" />
       <h2>Arsip</h2>
       <NotesList notes={archieve} onDelete={onDelete} date={date} onArchieve={onMove} buttonName="Pindahkan" />
-      <NotesListEmptyMessage />
+      {archieve.length === 0 &&
+        <NotesListEmptyMessage />
+      }
     </div>
   );
 }
