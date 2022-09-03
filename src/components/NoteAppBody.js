@@ -7,7 +7,11 @@ function NoteAppBody({ notes, onDelete, onArchieve, date, addNote, archieve, onM
   return (
     <div className="note-app__body">
       <NoteInput addNote={addNote} />
+      <h2>Catatan Aktif</h2>
       <NotesList notes={notes} onDelete={onDelete} onArchieve={onArchieve} date={date} buttonName="Arsipkan" />
+      {notes.length === 0 &&
+        <NotesListEmptyMessage />
+      }
       <h2>Arsip</h2>
       <NotesList notes={archieve} onDelete={onDelete} date={date} onArchieve={onMove} buttonName="Pindahkan" />
       {archieve.length === 0 &&
